@@ -10,12 +10,12 @@ const config = {
     // Using a new consumer group to ensure we get all messages
     groupId: 'new-consumer-group-' + Date.now(),
   },
-  topic: 'flink-test',
+  topic: 'flink-test-1',
   filter: {
     keyword: 'OutletDetails',
     timeRange: {
-      start: new Date(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()-2, 0, 0, 0)).getTime(), // One day prior at 12:00:00
-      end: new Date(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()-2, 0, 2, 0)).getTime()
+      start: new Date(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()-1, 0, 0, 0)).getTime(), // One day prior at 12:00:00
+      end: new Date(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), 0, 0, 0)).getTime()
     }
   },
   outputFile: path.join(__dirname, 'kafka_messages.json'),

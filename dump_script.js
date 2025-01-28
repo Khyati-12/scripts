@@ -6,7 +6,10 @@ const connection = mysql.createConnection({
   host: process.env.host,
   user: process.env.user,
   password: process.env.password,
-  database: process.env.database
+  database: process.env.database,
+  authPlugins: {
+        'mysql_native_password': () => () => Buffer.from(process.env.MYSQL_PASSWORD)
+    }
 });
 
 const parent = '';
